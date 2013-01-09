@@ -6,7 +6,7 @@ filetype off
 " ========================================================================
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
+Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'tomtom/tcomment_vim'
@@ -15,13 +15,13 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
-Bundle 'bbommarito/vim-slim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'mileszs/ack.vim'
 Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
-
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'bufexplorer.zip'
 " https://github.com/ecomba/vim-ruby-refactoring
 
 " ========================================================================
@@ -29,7 +29,9 @@ Bundle 'altercation/vim-colors-solarized'
 " ========================================================================
 
 syntax enable
-color railscasts
+color lucius
+LuciusDarkLowContrast
+
 filetype plugin indent on
 set number
 set ruler

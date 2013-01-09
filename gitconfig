@@ -112,15 +112,15 @@
   enabled = true
 
 [user]
-  email = info@stefanroex.nl
-  name = Stefan Roex
+  email = lasse@brightin.nl
+  name = Lasse 
 
 [credential]
   helper = osxkeychain
 
 [heroku]
   remote = origin
-  account = brightin
+  account = personal 
 
 [github]
-  user = stexy
+  user = lassecapel
