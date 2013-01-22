@@ -3,6 +3,7 @@ alias amend="git commit --amend"
 alias aliases='vim ~/.dotfiles/zsh/aliases'
 alias bake='bundle exec rake'
 alias be='bundle exec'
+alias b='bundle'
 alias bunbang='bundle install && !!'
 alias d='cd ~/.dotfiles'
 alias e='mvim .'
