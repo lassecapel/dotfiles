@@ -18,7 +18,6 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'mileszs/ack.vim'
-" Bundle 'wincent/Command-T'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tsaleh/vim-align'
@@ -152,23 +151,28 @@ let mapleader=","
 " ========================================================================
 
 nnoremap <leader><leader> <c-^>
-" map <leader>b :CommandTBuffer<cr>
-" map <leader>f :CommandT<cr>
-" map <leader>F :CommandT %%<cr>
-" map <leader>.v :CommandT app/views<cr>
-" map <leader>.c :CommandT app/controllers<cr>
-" map <leader>.m :CommandT app/models<cr>
-" map <leader>.h :CommandT app/helpers<cr>
-" map <leader>.k :CommandT config<cr>
-" map <leader>.l :CommandT lib<cr>
-" map <leader>.t :CommandT spec<cr>
-" map <leader>.r :topleft :split config/routes.rb<cr>
-" map <leader>.j :CommandT app/assets/javascripts<cr>
-" map <leader>.s :CommandT app/assets/stylesheets<cr>
-" map <leader>/t :CommandT app/assets/javascripts/templates<cr>
-" map <leader>/m :CommandT app/assets/javascripts/models<cr>
-" map <leader>/v :CommandT app/assets/javascripts/views<cr>
-" map <leader>/c :CommandT app/assets/javascripts/views<cr>
+
+" CtrlP familiar to Command-T
+" silent! nnoremap <unique> <silent> <Leader>t :CtrlP<CR>
+silent! nnoremap <unique> <silent> <Leader>f :CtrlP<CR>
+silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
+silent! nnoremap <unique> <silent> <Leader>ft :CtrlPFiletype<CR>
+
+map <leader>F :CtrlP %%<cr>
+map <leader>.v :CtrlP app/views<cr>
+map <leader>.c :CtrlP app/controllers<cr>
+map <leader>.m :CtrlP app/models<cr>
+map <leader>.h :CtrlP app/helpers<cr>
+map <leader>.k :CtrlP config<cr>
+map <leader>.l :CtrlP lib<cr>
+map <leader>.t :CtrlP spec<cr>
+map <leader>.r :topleft :split config/routes.rb<cr>
+map <leader>.j :CtrlP app/assets/javascripts<cr>
+map <leader>.s :CtrlP app/assets/stylesheets<cr>
+map <leader>/t :CtrlP app/assets/javascripts/templates<cr>
+map <leader>/m :CtrlP app/assets/javascripts/models<cr>
+map <leader>/v :CtrlP app/assets/javascripts/views<cr>
+map <leader>/c :CtrlP app/assets/javascripts/views<cr>
 map <leader>/r :topleft :split app/assets/javascripts/router.js.coffee<cr>
 
 " find merge conflict markers
@@ -213,15 +217,15 @@ nnoremap <c-l> <c-w>l
 " Insert Launchy
 nmap <leader>s A<cr>save_and_open_page<esc>
 
-" CtrlP familiar to Command-T
-silent! nnoremap <unique> <silent> <Leader>t :CtrlP<CR>
-silent! nnoremap <unique> <silent> <Leader>f :CtrlP<CR>
-
-" CtrlP for buffers
-silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
-
-" CtrlP for filetype
-silent! nnoremap <unique> <silent> <Leader>ft :CtrlPFiletype<CR>
+"bind command-] to indent
+nmap <D-]> >>
+vmap <D-]> >gv
+imap <D-]> <C-O>>>
+ 
+"bind command-[ to outdent
+nmap <D-[> <<
+vmap <D-[> <gv
+imap <D-[> <C-O><<
 
 
 " ========================================================================
@@ -246,7 +250,7 @@ if has("autocmd")
   " Reload vimrc on save
   au BufWritePost .vimrc source $MYVIMRC
 
-  " Flush CommandT automaticaly
+  " Flush CtrlP automaticaly
   au FocusGained,BufWritePost * ClearCtrlPCache
 endif
 
