@@ -201,8 +201,8 @@ nmap <leader>o :! open .<cr><cr>
 nmap <leader>O :! open %%<cr><cr>
 
 " Tests
-map <Leader>T :call RunCurrentTest()<CR>
-map <Leader>t :call RunCurrentLineInTest()<CR>
+map <Leader>t :call RunCurrentTest()<CR>
+map <Leader>T :call RunCurrentLineInTest()<CR>
 map <Leader>a :!rspec<CR>
 
 "Rename File
@@ -278,7 +278,7 @@ function! RunCurrentTest()
       call SetTestRunner("!cucumber")
       exec g:bjo_test_runner g:bjo_test_file
     elseif match(expand('%'), '_spec\.rb$') != -1
-      call SetTestRunner("!rspec -no-color")
+      call SetTestRunner("!rspec --no-color")
       exec g:bjo_test_runner g:bjo_test_file
     else
       call SetTestRunner("!ruby -Itest")
