@@ -26,6 +26,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'skammer/vim-css-color'
 Bundle 'kien/ctrlp.vim'
 Bundle 'endel/ctrlp-filetype.vim'
+Bundle 'rubycomplete.vim'
+Bundle "jnwhiteh/vim-golang"
 " ========================================================================
 "  Settings
 " ========================================================================
@@ -95,6 +97,19 @@ set cmdheight=2
 
 " When at 3 spaces and I hit >>, go to 4, not 5.
 set shiftround
+
+
+"ruby
+autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"improve autocomplete menu color
+"highlight Pmenu ctermbg=238 gui=bold
+" Go Lang
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
 
 " don't use Ex mode, use Q for formatting
 map Q gq
