@@ -121,7 +121,7 @@ nnoremap <silent> <CR> :nohlsearch<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " ignore Rubinius, Sass cache files
-set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**
+set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**,*.so,*.swp,*.zip
 
 " disable cursor keys in normal mode
 map <Left>  :echo "no! arrows you shall not use!"<cr>
@@ -135,7 +135,9 @@ map ; :
 
 " CtrlP config
 let g:ctrlp_working_path_mode = 2          " CtrlP: use the nearest ancestor that contains one of these directories or files: .git/ .hg/ .svn/ .bzr/ _darcs/
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip   " MacOSX/Linux
+" ignore Rubinius, Sass cache files
+set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**,*.so,*.swp,*.zip
+
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules',
     \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\|\.DS_Store',
