@@ -3,3 +3,11 @@ _c() { _files -W ~/code -/; }
 compdef _c c
 
 rails_new() { rails new $1 --skip-bundle && cd $1 && e }
+
+function eys(){
+ ey "$@" --environment=staging
+}
+
+function eyp(){
+ ey "$@" --environment=production
+}
