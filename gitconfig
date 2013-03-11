@@ -98,7 +98,7 @@
 	default = current
 [core]
   autocrlf = false
-  editor = vim
+
   excludesfile = ~/.gitignore
 [advice]
   statusHints = false
