@@ -120,7 +120,7 @@
 
 [heroku]
   remote = origin
-  account = personal 
+	account = personal
 
 [github]
   user = lassecapel
