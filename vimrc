@@ -28,6 +28,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'endel/ctrlp-filetype.vim'
 Bundle 'rubycomplete.vim'
 Bundle "jnwhiteh/vim-golang"
+Bundle 'https://github.com/scrooloose/syntastic.git'
 " ========================================================================
 "  Settings
 " ========================================================================
@@ -173,7 +174,7 @@ nnoremap <leader><leader> <c-^>
 " silent! nnoremap <unique> <silent> <Leader>t :CtrlP<CR>
 silent! nnoremap <unique> <silent> <Leader>f :CtrlP<CR>
 silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
-silent! nnoremap <unique> <silent> <Leader>ft :CtrlPFiletype<CR>
+silent! nnoremap <unique> <silent> <Leader>FT :CtrlPFiletype<CR>
 
 map <leader>F :CtrlP %%<cr>
 map <leader>.v :CtrlP app/views<cr>

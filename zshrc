@@ -34,3 +34,6 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 # No rbenv init for faster login (needs manual rehash)
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
