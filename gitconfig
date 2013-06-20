@@ -51,7 +51,6 @@
 
   # push
   ps = push                         # push
-  pall = push && git push staging && git push production #push github/staging/production
 
   # rebase
   rc = rebase --continue            # continue rebase

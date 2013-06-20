@@ -25,7 +25,12 @@ Bundle 'slim-template/vim-slim'
 Bundle 'sjl/gundo.vim'
 Bundle 'skammer/vim-css-color'
 Bundle 'kien/ctrlp.vim'
+
 Bundle 'endel/ctrlp-filetype.vim'
+Bundle 'vim-scripts/ruby-matchit'
+Bundle 'zhaocai/linepower.vim'
+
+Bundle 'koron/nyancat-vim'
 Bundle 'rubycomplete.vim'
 Bundle "jnwhiteh/vim-golang"
 Bundle 'https://github.com/scrooloose/syntastic.git'
