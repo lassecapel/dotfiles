@@ -195,6 +195,8 @@ map <leader>/v :CtrlP app/assets/javascripts/views<cr>
 map <leader>/c :CtrlP app/assets/javascripts/views<cr>
 map <leader>/r :topleft :split app/assets/javascripts/router.js.coffee<cr>
 
+map <leader>wc :CoffeeCompile watch vert<cr>
+
 " find merge conflict markers
 nmap <leader>cf <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 
@@ -247,7 +249,12 @@ nmap <D-[> <<
 vmap <D-[> <gv
 imap <D-[> <C-O><<
 
-
+"CoffeeScript
+"
+hi link coffeeReservedError NONE
+hi link coffeeSemicolonError NONE
+hi link coffeeSpaceError NONE
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 " ========================================================================
 "  Autocmd
 " ========================================================================
