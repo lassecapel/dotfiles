@@ -1,16 +1,11 @@
 # set your user tokens as enivornment variables, such as ~/.secrets
 # See the README for examples.
-[color]
-  ui = true
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
-[color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+[user]
+  email = lasse@brightin.nl
+  name = Lasse 
+[github]
+  user = lassecapel
+
 [alias]
   # add
   a = add                           # add
@@ -79,15 +74,31 @@
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
 
-  # svn helpers
-  svnr = svn rebase
-  svnd = svn dcommit
-  svnl = svn log --oneline --show-commit
+[color]
+  ui = true
+  status = auto
+
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim --noplugin
+
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [merge]
   summary = true
   verbosity = 1
+
 [apply]
   whitespace = nowarn
 [branch]
@@ -95,11 +106,9 @@
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
-	default = current
-[core]
-  autocrlf = false
-
-  excludesfile = ~/.gitignore
+  default = current
+[merge]
+  ff = only
 [advice]
   statusHints = false
 [diff]
@@ -111,16 +120,10 @@
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
   enabled = true
 
-[user]
-  email = lasse@brightin.nl
-  name = Lasse 
 
 [credential]
   helper = osxkeychain
 
 [heroku]
   remote = origin
-	account = personal
-
-[github]
-  user = lassecapel
+  account = personal

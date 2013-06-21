@@ -15,24 +15,21 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
-Bundle 'tpope/vim-unimpaired'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'mileszs/ack.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'tsaleh/vim-align'
 Bundle 'slim-template/vim-slim'
 Bundle 'sjl/gundo.vim'
 Bundle 'skammer/vim-css-color'
-Bundle 'kien/ctrlp.vim'
+Bundle 'Command-T'
+Bundle 'rking/ag.vim'
+
 
 Bundle 'endel/ctrlp-filetype.vim'
-Bundle 'vim-scripts/ruby-matchit'
 Bundle 'zhaocai/linepower.vim'
 
 Bundle 'koron/nyancat-vim'
-Bundle 'rubycomplete.vim'
-Bundle "jnwhiteh/vim-golang"
 Bundle 'https://github.com/scrooloose/syntastic.git'
 " ========================================================================
 "  Settings
@@ -78,8 +75,8 @@ set winheight=10
 set winminheight=10
 set winheight=999
 
-" Use Ack instead of grep
-set grepprg=ack
+" Use Ag instead of grep
+set grepprg=ag
 
 " Able to 'gf' files
 set suffixesadd=.rb,.coffee,.js
@@ -177,7 +174,7 @@ nnoremap <leader><leader> <c-^>
 
 " CtrlP familiar to Command-T
 " silent! nnoremap <unique> <silent> <Leader>t :CtrlP<CR>
-silent! nnoremap <unique> <silent> <Leader>f :CtrlP<CR>
+silent! nnoremap <unique> <silent> <Leader>f :CommandT<CR>
 silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
 silent! nnoremap <unique> <silent> <Leader>FT :CtrlPFiletype<CR>
 
@@ -274,7 +271,7 @@ if has("autocmd")
   au BufWritePost .vimrc source $MYVIMRC
 
   " Flush CtrlP automaticaly
-  au FocusGained,BufWritePost * ClearCtrlPCache
+  au FocusGained,BufWritePost * CommandTFlush
 endif
 
 
@@ -342,12 +339,4 @@ function! CorrectTestRunner()
   else
     return "ruby"
   endif
-endfunction
-
-function! OpenFactoryFile()
-  if filereadable("test/factories.rb")
-    execute ":sp test/factories.rb"
-  else
-    execute ":sp spec/factories.rb"
-  end
 endfunction
