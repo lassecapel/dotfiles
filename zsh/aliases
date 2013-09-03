@@ -34,7 +34,6 @@ alias rs='rails server'
 alias sc='staging-console'
 alias so='source ~/.dotfiles/zsh/aliases'
 alias u='cd ..'
-alias vim='mvim'
 alias v='mvim'
 
 # Heroku staging

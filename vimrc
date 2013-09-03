@@ -15,6 +15,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-haml'
+Bundle 'nono/vim-handlebars'
 Bundle 'tpope/vim-endwise'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'altercation/vim-colors-solarized'
@@ -25,6 +26,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'skammer/vim-css-color'
 Bundle 'Command-T'
 Bundle 'rking/ag.vim'
+Bundle 'scrooloose/nerdtree'
 
 
 Bundle 'endel/ctrlp-filetype.vim'
@@ -118,6 +120,11 @@ syntax on
 " don't use Ex mode, use Q for formatting
 map Q gq
 
+" Nerdtree
+autocmd vimenter * if !argc() | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+
 " clear the search buffer when hitting return
 nnoremap <silent> <CR> :nohlsearch<cr>
 
@@ -125,7 +132,7 @@ nnoremap <silent> <CR> :nohlsearch<cr>
 cnoremap %% <C-R>=expand('%:h').'/'<cr>
 
 " ignore Rubinius, Sass cache files
-set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**,*.so,*.swp,*.zip
+set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**,*.so,*.swp,*.zip,*.dump,*.sql
 
 " disable cursor keys in normal mode
 map <Left>  :echo "no! arrows you shall not use!"<cr>
@@ -136,30 +143,13 @@ map <Down>  :echo "no! arrows you shall not use!"<cr>
 " No difference between ; and ;
 map ; :
 
-
-" CtrlP config
-let g:ctrlp_working_path_mode = 2          " CtrlP: use the nearest ancestor that contains one of these directories or files: .git/ .hg/ .svn/ .bzr/ _darcs/
 " ignore Rubinius, Sass cache files
 set wildignore+=*/tmp/**,*.rbc,.rbx,*.scssc,*.sassc,*/vendor/**,*.so,*.swp,*.zip
-
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\.git$\|\.hg$\|\.svn$\|node_modules',
-    \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\|\.DS_Store',
-    \ 'link': 'some_bad_symbolic_links',
-    \ }
-let g:ctrlp_extensions = [
-   \ 'ctrlp-filetpe',
-   \ ]
-let g:ctrlp_follow_symlinks = 1
-
-" CtrlP for filetype
-let g:ctrlp_extensions = ['filetype']
-
 
 command! KillWhitespace :normal :%s/ *$//g<cr><c-o><cr>
 
 " Command T
-" let g:CommandTCancelMap=['<ESC>','<C-c>']
+let g:CommandTCancelMap=['<ESC>','<C-c>']
 
 " CSS COLOR
 let g:cssColorVimDoNotMessMyUpdatetime = 1
@@ -176,25 +166,24 @@ nnoremap <leader><leader> <c-^>
 " CtrlP familiar to Command-T
 " silent! nnoremap <unique> <silent> <Leader>t :CtrlP<CR>
 silent! nnoremap <unique> <silent> <Leader>f :CommandT<CR>
-silent! nnoremap <unique> <silent> <Leader>b :CtrlPBuffer<CR>
-silent! nnoremap <unique> <silent> <Leader>FT :CtrlPFiletype<CR>
+silent! nnoremap <unique> <silent> <Leader>b :CommandTBuffer<CR>
 
-map <leader>F :CtrlP %%<cr>
-map <leader>.v :CtrlP app/views<cr>
-map <leader>.c :CtrlP app/controllers<cr>
-map <leader>.m :CtrlP app/models<cr>
-map <leader>.h :CtrlP app/helpers<cr>
-map <leader>.k :CtrlP config<cr>
-map <leader>.l :CtrlP lib<cr>
-map <leader>.t :CtrlP spec<cr>
+map <leader>F :CommandT %%<cr>
+map <leader>.v :CommandT app/views<cr>
+map <leader>.c :CommandT app/controllers<cr>
+map <leader>.m :CommandT app/models<cr>
+map <leader>.h :CommandT app/helpers<cr>
+map <leader>.k :CommandT config<cr>
+map <leader>.l :CommandT lib<cr>
+map <leader>.t :CommandT spec<cr>
 map <leader>.r :topleft :split config/routes.rb<cr>
-map <leader>.j :CtrlP app/assets/javascripts<cr>
-map <leader>.s :CtrlP app/assets/stylesheets<cr>
-map <leader>/t :CtrlP app/assets/javascripts/templates<cr>
-map <leader>/m :CtrlP app/assets/javascripts/models<cr>
-map <leader>/v :CtrlP app/assets/javascripts/views<cr>
-map <leader>/c :CtrlP app/assets/javascripts/views<cr>
-map <leader>/r :topleft :split app/assets/javascripts/router.js.coffee<cr>
+map <leader>.j :CommandT app/assets/javascripts<cr>
+map <leader>.s :CommandT app/assets/stylesheets<cr>
+map <leader>/t :CommandT app/assets/javascripts/templates<cr>
+map <leader>/m :CommandT app/assets/javascripts/models<cr>
+map <leader>/v :CommandT app/assets/javascripts/views<cr>
+map <leader>/c :CommandT app/assets/javascripts/views<cr>
+map <leader>/r :CommandT :split app/assets/javascripts/router.js.coffee<cr>
 
 map <leader>wc :CoffeeCompile watch vert<cr>
 
@@ -237,6 +226,8 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
+map <C-n> :NERDTreeToggle<CR>
+
 " Insert Launchy
 nmap <leader>s A<cr>save_and_open_page<esc>
 
@@ -256,6 +247,9 @@ hi link coffeeReservedError NONE
 hi link coffeeSemicolonError NONE
 hi link coffeeSpaceError NONE
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+
+" Nerdtree
+
 " ========================================================================
 "  Autocmd
 " ========================================================================

@@ -21,10 +21,9 @@ chpwd() {
   ls -lrthG
 }
 
-export EDITOR=mvim
+export EDITOR=vim
 
 # Customize to your needs...
-#export PATH=/usr/local/bin:/Users/stefanroex/.rbenv/shims:/Users/stefanroex/.rbenv/bin:~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/oracle/instantclient_10_2
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
@@ -42,3 +41,5 @@ export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
+
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
