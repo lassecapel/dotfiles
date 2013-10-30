@@ -34,6 +34,7 @@ Bundle 'zhaocai/linepower.vim'
 
 Bundle 'koron/nyancat-vim'
 Bundle 'https://github.com/scrooloose/syntastic.git'
+Bundle 'kien/rainbow_parentheses.vim'
 " ========================================================================
 "  Settings
 " ========================================================================
@@ -248,6 +249,8 @@ hi link coffeeSemicolonError NONE
 hi link coffeeSpaceError NONE
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 
+" Rainbow Parenthesis
+nnoremap <leader>rp :RainbowParenthesesToggle<CR>
 " Nerdtree
 
 " ========================================================================
