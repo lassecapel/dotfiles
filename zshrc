@@ -21,12 +21,14 @@ chpwd() {
   ls -lrthG
 }
 
-export EDITOR=vim
+export EDITOR=mvim
 
 # Customize to your needs...
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+export PATH="/usr/local/npm/bin:$PATH"
+export PATH="/usr/local/share/npm/bin:$PATH"
 
 # No rbenv init for faster login (needs manual rehash)
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -43,3 +45,6 @@ export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# init z https://github.com/rupa/z
+. ~/z/z.sh

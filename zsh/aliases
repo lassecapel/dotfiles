@@ -6,7 +6,6 @@ alias be='bundle exec'
 alias b='bundle'
 alias bunbang='bundle install && !!'
 alias d='cd ~/.dotfiles'
-alias e='mvim .'
 alias ga='git add . && gs'
 alias gc='git commit'
 alias gd='git diff'
@@ -25,6 +24,7 @@ alias la='ls -la'
 alias lo='powder applog'
 alias pc='production-console'
 alias pow='powder'
+alias power='pow restart'
 alias rc='pry'
 alias re='powder restart'
 alias retag='ctags -R --exclude=.svn --exclude=.git --exclude=log *'
@@ -35,6 +35,19 @@ alias sc='staging-console'
 alias so='source ~/.dotfiles/zsh/aliases'
 alias u='cd ..'
 alias v='mvim'
+alias bower='noglob bower'
+
+# Digischool
+
+alias digischool='cd ~/code/digischool/'
+alias ssh83='ssh rails@145.97.34.83'
+alias ssh84='ssh rails@145.97.34.84'
+alias ssh85='ssh rails@145.97.34.85'
+alias ssh87='ssh rails@145.97.34.87'
+alias ssh100='ssh rails@145.97.34.100'
+
+alias fosbury='cd ~/code/fosbury/'
+alias f='cd ~/code/fosbury/'
 
 # Heroku staging
 alias staging-console='heroku run console'
@@ -55,3 +68,5 @@ alias db-install-production='db-backup-production && db-download-production && d
 
 # Network
 alias ip="curl -s checkip.dyndns.org | grep -Eo '[0-9\.]+'"
+
+alias dotto='killruby ; be rake db:drop && be rake db:create && psql dotto_development < latest.dump ; be rake update_to_fase2'

@@ -1,8 +1,8 @@
 # set your user tokens as enivornment variables, such as ~/.secrets
 # See the README for examples.
 [user]
-  email = lasse@brightin.nl
-  name = Lasse 
+  email = lasse@lassecapel.nl
+  name = Lasse capel
 [github]
   user = lassecapel
 
@@ -126,4 +126,4 @@
 
 [heroku]
   remote = origin
-  account = personal
+	account = private

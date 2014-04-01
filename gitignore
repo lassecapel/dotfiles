@@ -11,3 +11,4 @@ db/*.sqlite3
 .powder
 .powenv
 .dump
+config/database.yml

@@ -27,6 +27,8 @@ Bundle 'skammer/vim-css-color'
 Bundle 'Command-T'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'vim-json-bundle'
+
 
 
 Bundle 'endel/ctrlp-filetype.vim'
@@ -184,7 +186,10 @@ map <leader>/t :CommandT app/assets/javascripts/templates<cr>
 map <leader>/m :CommandT app/assets/javascripts/models<cr>
 map <leader>/v :CommandT app/assets/javascripts/views<cr>
 map <leader>/c :CommandT app/assets/javascripts/views<cr>
-map <leader>/r :CommandT :split app/assets/javascripts/router.js.coffee<cr>
+
+map <leader>bi :BundleInstall<cr>
+map <leader>bc :BundleClean<cr>
+map <leader>bs :BundleSearch<cr>
 
 map <leader>wc :CoffeeCompile watch vert<cr>
 
